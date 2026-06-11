@@ -1,0 +1,8 @@
+<ul>
+    @for (todo of todos(); track $index){
+        <li>
+            <h3>{{todo.title}}</h3>
+            <div>{{todo.body}}</div>
+        </li>
+}
+</ul>

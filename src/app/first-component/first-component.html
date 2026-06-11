@@ -1,0 +1,26 @@
+<h1>Data Binding</h1>
+<ol>
+    <li>One-way Binding
+        <ul>
+            <li>String interpolation</li>
+            <li>Event Binding</li>
+            <li>Property Binding</li>
+        </ul>
+    </li>
+        
+    <li>Two-way Binding: [(ngModel)]</li>
+</ol>
+<!-- String interpolation -->
+<h2>{{ data }}</h2> 
+<!-- Event Binding -->
+<button (click)="onClick()">Change Name</button>
+<!-- Property Binding -->
+<button [disabled]="disable" [textContent]="data">Disabled</button>
+<h2>Two-way data binding: {{userInput}}</h2>
+<input [(ngModel)]="userInput" />
+
+<ul>
+@for(user of users(); track user.id){
+    <li>{{user.username}}</li>
+}
+</ul>

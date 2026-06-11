@@ -1,0 +1,11 @@
+@if (errorMessage()) {
+  <p>{{ errorMessage() }}</p>
+}
+
+@for (product of products(); track product.id) {
+  <div>
+    <h3>{{ product.title }}</h3>
+    <h3>{{ product.description }}</h3>
+    <h3>{{ product.category }}</h3>
+  </div>
+}

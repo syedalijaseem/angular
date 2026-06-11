@@ -1,0 +1,26 @@
+<p>day6-component works!</p>
+<button class="btn">Click to emit data</button>
+<input class="search-input" />
+
+<form [formGroup]="registerForm">
+  <label>Username: </label>
+  <input type="text" formControlName="username" />
+  @if (username.dirty && username.hasError('required')) {
+    <p>This field is required</p>
+  }
+  @if (username.dirty && username.hasError('minlength')) {
+    <p>Username must be at least 3 characters</p>
+  }
+
+  <br />
+  <label>Email: </label>
+  <input type="text" formControlName="email" />
+  @if (registerForm.controls.email.dirty && registerForm.controls.email.hasError('required')) {
+    <p>Please use a valid email address</p>
+  }
+  <br />
+  <label>Age: </label>
+  <input type="text" formControlName="age" />
+  @if (ageControl?.hasError('required')) {}
+</form>
+<button>Submit</button>

@@ -1,0 +1,28 @@
+<h1>Directives </h1>
+<ol>
+    <li>Component</li>
+    <li>Structral Directives: add/remove elements from DOM
+        <ul>
+            <li>ngIf: if(condition) </li>
+            <li>ngFor: for(sth of arr; track sth unique)</li>
+            <li>ngSwich</li>
+        </ul>
+    </li>
+    <li>Attribute Directives: change appearance of elements
+        <ul>
+            <li [ngStyle]="{backgroundColor: bgColor}">ngStyle</li>
+            <li [ngClass]="bgColor === 'blue' ? 'blue' : 'red'">ngClass</li>
+        </ul>
+    </li>
+    <li>Custom Directives</li>
+</ol>
+<h1>Pipe Intro</h1>
+<p>Pipe: transfrom/format data in template. data | pipename: arguments</p>
+@for(todo of todos; track todo.id) {
+    <p>{{todo.id}} - {{todo.title | titlecase}}
+        @if(todo.completed){
+            <span>✅ </span>
+        }
+    </p>
+}
+
