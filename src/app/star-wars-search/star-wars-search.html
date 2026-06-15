@@ -1,0 +1,25 @@
+<form>
+  <input type="text" [formControl]="characterName" placeholder="Enter a Star Wars character" />
+
+  <button type="button" (click)="onSubmit()">Search</button>
+</form>
+
+@if (films().length > 0) {
+  <table>
+    <thead>
+      <tr>
+        <th>Film</th>
+        <th>Release Date</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (film of films(); track film.title) {
+        <tr>
+          <td>{{ film.title }}</td>
+          <td>{{ film.release_date }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
