@@ -9,6 +9,9 @@ import { Day4Component } from './day4-component/day4-component';
 import { Day5Component } from './day5-component/day5-component';
 import { Day6Component } from './day6-component/day6-component';
 import { ProductComponent } from './product-component/product-component';
+import { JobBoard } from './job-board/job-board';
+import { StarWarsSearch } from './star-wars-search/star-wars-search';
+import { MortgageCalculator } from './mortgage-calculator/mortgage-calculator';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +25,9 @@ import { ProductComponent } from './product-component/product-component';
     Day5Component,
     Day6Component,
     ProductComponent,
+    JobBoard,
+    StarWarsSearch,
+    MortgageCalculator,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',
