@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { FirstComponent } from './first-component/first-component';
 import { DirectivesIntroComponent } from './directives-intro-component/directives-intro-component';
 import { LifecycleIntro } from './lifecycle-intro/lifecycle-intro';
@@ -12,6 +12,7 @@ import { ProductComponent } from './product-component/product-component';
 import { JobBoard } from './job-board/job-board';
 import { StarWarsSearch } from './star-wars-search/star-wars-search';
 import { MortgageCalculator } from './mortgage-calculator/mortgage-calculator';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -35,8 +36,13 @@ import { MortgageCalculator } from './mortgage-calculator/mortgage-calculator';
 export class App {
   protected readonly title = signal('inClass');
   condition = true;
+  private router = inject(Router);
 
   toggle() {
     this.condition = !this.condition;
+  }
+
+  toProduct() {
+    this.router.navigate(['/product/2/1'], { queryParams: { sort: 'latest', page: 1 } });
   }
 }

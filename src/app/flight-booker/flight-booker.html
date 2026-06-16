@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="flightForm">
+    <select formControlName="flightType">
+      <option value="one-way">One-way</option>
+      <option value="return">Return</option>
+    </select>
+    <input type="date" formControlName="departureDate" />
+    @if (flightForm.get('flightType')?.value === 'return') {
+      <input type="date" formControlName="returnDate" />
+    }
+
+    <button type="button" (click)="onSubmit()">Submit</button>
+
+    @if (error()) {
+      <p class="error">{{ error() }}</p>
+    }
+    @if (message()) {
+      <p class="message">{{ message() }}</p>
+    }
+  </form>
+</div>

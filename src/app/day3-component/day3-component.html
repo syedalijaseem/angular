@@ -1,28 +1,29 @@
 <h1>Service Data</h1>
 <div>
-    <label>Provide username: </label>
-    <input type="text" [(ngModel)]="username" 
-    (keyup.enter)="addNewUser()" />
+  <label>Provide username: </label>
+  <input type="text" [(ngModel)]="username" (keyup.enter)="addNewUser()" />
 </div>
 
-<h1>Signal {{count()}}</h1>
+<h1>Signal {{ count() }}</h1>
 <button (click)="onClick()">Set Signal</button>
 <div>Reactive Primitive. Zoneless</div>
-<input [(ngModel)]="userInput"/>
-<p>Input from User: {{userInput()}}</p>
-<div>Normal variables may not update the ui: {{num()}}</div>
+<input [(ngModel)]="userInput" />
+<p>Input from User: {{ userInput() }}</p>
+<div>Normal variables may not update the ui: {{ num() }}</div>
 
 <h1>Data communication</h1>
 <ol>
-    <li>Parent-child relationship
-        <ul>
-            <li>From Parent to Child: input + property binding</li>
-            <li>From Child to Parent: output + event binding</li>
-        </ul>  
-    </li>
-    <li>No relationship: Service</li>
+  <li>
+    Parent-child relationship
+    <ul>
+      <li>From Parent to Child: input + property binding</li>
+      <li>From Child to Parent: output + event binding</li>
+    </ul>
+  </li>
+  <li>No relationship: Service</li>
 </ol>
-<div>Message from Child Component: {{fromChild}}</div>
-<app-child-component [fromParent]="userInput()"
+<div>Message from Child Component: {{ fromChild }}</div>
+<!-- <app-child-component [fromParent]="userInput()"
 (toParent)="handleChildEvent($event)"
-></app-child-component>
+></app-child-component> -->
+<router-outlet />

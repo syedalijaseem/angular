@@ -2,14 +2,15 @@ import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child-component/child-component';
 import { FirstService } from '../Services/first-service';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-day3-component',
-  imports: [FormsModule, ChildComponent],
+  imports: [FormsModule, ChildComponent, RouterOutlet],
   templateUrl: './day3-component.html',
   styleUrl: './day3-component.scss',
 })
-export class Day3Component implements OnInit{
+export class Day3Component implements OnInit {
   count = signal(0);
   intval = -1;
   userInput = signal('hello');
@@ -30,27 +31,26 @@ export class Day3Component implements OnInit{
     // }, 1000);
 
     // update on normal variables
-    setTimeout(()=>{
+    setTimeout(() => {
       // this.num = 0;
       this.num.set(0);
       console.log(this.num());
-    }, 1000)
+    }, 1000);
     console.log(this.firstService.users);
   }
 
-  onClick(){
+  onClick() {
     // set
     this.count.set(0);
-    clearInterval(this.intval)
+    clearInterval(this.intval);
   }
 
-  handleChildEvent(str: string){
-    console.log("inParent, "+str)
+  handleChildEvent(str: string) {
+    console.log('inParent, ' + str);
     this.fromChild = str;
   }
 
-  addNewUser(){
-    this.firstService.newUsers = {username: this.username}
+  addNewUser() {
+    this.firstService.newUsers = { username: this.username };
   }
-
 }
