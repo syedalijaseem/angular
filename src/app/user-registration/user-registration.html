@@ -1,0 +1,46 @@
+<form [formGroup]="registrationForm">
+  <input type="text" formControlName="username" placeholder="Username" />
+
+  @if (username.touched && username.invalid) {
+    <p>Username is required and must be at least 3 characters long.</p>
+  }
+
+  <input type="email" formControlName="email" placeholder="Email" />
+
+  @if (email.touched && email.value && email.invalid) {
+    <p>Please enter a valid email address.</p>
+  }
+
+  <input type="password" formControlName="password" placeholder="Password" />
+
+  @if (password.touched && password.invalid) {
+    <p>Password is required and must be at least 6 characters long.</p>
+  }
+
+  <input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+
+  @if (confirmPassword.touched && registrationForm.errors?.['passwordMismatch']) {
+    <p>Passwords do not match.</p>
+  }
+
+  <input type="text" formControlName="phoneNumber" placeholder="Phone Number" />
+
+  <select title="contactMethod" formControlName="contactMethod">
+    <option value="email">Email</option>
+    <option value="phone">Phone</option>
+  </select>
+
+  @if (contactMethod.touched && registrationForm.errors?.['contactMethodRequired']) {
+    <p>Please provide at least one contact method.</p>
+  }
+
+  @if (contactMethod.touched && registrationForm.errors?.['emailRequired']) {
+    <p>Please enter a valid email address.</p>
+  }
+
+  @if (contactMethod.touched && registrationForm.errors?.['phoneRequired']) {
+    <p>Please provide a phone number.</p>
+  }
+
+  <button type="button" [disabled]="registrationForm.invalid" (click)="onSubmit()">Submit</button>
+</form>

@@ -1,0 +1,20 @@
+<h1>{{ count | async }}</h1>
+<button (click)="increment()">Increment</button>
+
+<div>
+  <p>NGRX: follows the Redux pattern.</p>
+  <ul>
+    <li>Store: central container for application state</li>
+    <li>Actions: describing what happend. Triggered by user Event</li>
+    <li>
+      Reducers: pure functions to transit to a new state. Specify how the state changes in response
+      to the Actions
+    </li>
+    <li>Selectors (Optional): pure functions to read part of the state</li>
+    <li>Effects (Optional): handing side effects (Http requests, local storage...)</li>
+  </ul>
+  <p>
+    User event => <b>action</b> dispatched => trigger <b>reducers</b> => update state in
+    <b>store</b>
+  </p>
+</div>

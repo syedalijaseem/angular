@@ -8,9 +8,8 @@ describe('Day3Component', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Day3Component]
-    })
-    .compileComponents();
+      imports: [Day3Component],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Day3Component);
     component = fixture.componentInstance;
@@ -19,5 +18,12 @@ describe('Day3Component', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should update fromChild when child component event happens', () => {
+    const childMessage = 'Message from child output';
+    // call the method that handles child event
+    component.handleChildEvent(childMessage);
+    expect(component.fromChild).toBe(childMessage);
   });
 });

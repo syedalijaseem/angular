@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
-import { FetchDataService } from '../day4-component/Service/fetch-data-service';
+import { FetchDataService } from '../day4-component/Services/fetch-data-service';
 import { BehaviorSubject, fromEvent, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { ShareDataService } from './Service/share-data-service';
 

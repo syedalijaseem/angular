@@ -8,6 +8,8 @@ import { FirstComponent } from './first-component/first-component';
 import { ProductRouteComponent } from './product-route-component/product-route-component';
 import { authGuard } from './Auth/auth-guard';
 import { FlightBooker } from './flight-booker/flight-booker';
+import { Counter } from './counter/counter';
+import { UserRegistration } from './user-registration/user-registration';
 
 export const routes: Routes = [
   { path: '', component: Day3Component },
@@ -20,6 +22,8 @@ export const routes: Routes = [
   { path: 'day5', component: Day5Component },
   { path: 'day6', component: Day6Component, canActivate: [authGuard] },
   { path: 'flights', component: FlightBooker },
+  { path: 'registration', component: UserRegistration },
+  { path: 'counter', component: Counter },
 
   {
     path: 'lifecycle',
