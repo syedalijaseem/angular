@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Undoable Counter</h1>
+
+  <div class="undo-redo">
+    <button type="button" (click)="undo()">Undo</button>
+    <button type="button" (click)="redo()" [disabled]="undoHistory().length === 0">Redo</button>
+  </div>
+
+  <div class="counter-controls">
+    <button type="button" (click)="decrement(100)">-100</button>
+    <button type="button" (click)="decrement(10)">-10</button>
+    <button type="button" (click)="decrement(1)">-1</button>
+
+    <h2>{{ count() }}</h2>
+
+    <button type="button" (click)="increment(1)">+1</button>
+    <button type="button" (click)="increment(10)">+10</button>
+    <button type="button" (click)="increment(100)">+100</button>
+  </div>
+
+  <h2>History</h2>
+
+  <div class="history">
+    @for (item of history().slice().reverse(); track $index) {
+      <div class="history-item">
+        {{ item.value > 0 ? '+' : '' }}{{ item.value }} ({{ item.before }} -> {{ item.after }})
+      </div>
+    }
+  </div>
+</div>

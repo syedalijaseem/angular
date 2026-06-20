@@ -23,7 +23,8 @@
   <li>No relationship: Service</li>
 </ol>
 <div>Message from Child Component: {{ fromChild }}</div>
-<!-- <app-child-component [fromParent]="userInput()"
-(toParent)="handleChildEvent($event)"
-></app-child-component> -->
-<router-outlet />
+<app-child-component [fromParent]="userInput()" (toParent)="handleChildEvent($event)"
+  ><p id="title">NG-CONTENT TITLE</p>
+  <p id="body">This is the template from Parent using ng-content</p></app-child-component
+>
+<!-- <router-outlet /> -->

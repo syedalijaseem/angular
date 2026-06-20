@@ -1,4 +1,6 @@
 <h1>Child Component</h1>
-<p>Message from Parent: {{fromParent()}}</p>
+<ng-content select="#title"></ng-content>
+<p>Message from Parent: {{ fromParent() }}</p>
 <label>Message to Parent: </label>
 <input type="text" (input)="onUserInput()" [(ngModel)]="val" />
+<ng-content select="#body"></ng-content>

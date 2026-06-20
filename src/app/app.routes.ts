@@ -10,6 +10,9 @@ import { authGuard } from './Auth/auth-guard';
 import { FlightBooker } from './flight-booker/flight-booker';
 import { Counter } from './counter/counter';
 import { UserRegistration } from './user-registration/user-registration';
+import { NewComponent } from './new-component/new-component';
+import { Todos } from './todos/todos';
+import { UndoableCounter } from './undoable-counter/undoable-counter';
 
 export const routes: Routes = [
   { path: '', component: Day3Component },
@@ -24,6 +27,9 @@ export const routes: Routes = [
   { path: 'flights', component: FlightBooker },
   { path: 'registration', component: UserRegistration },
   { path: 'counter', component: Counter },
+  { path: 'newcomponent', component: NewComponent },
+  { path: 'todo', component: Todos },
+  { path: 'undoablecounter', component: UndoableCounter },
 
   {
     path: 'lifecycle',

@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+}
+
+.undo-redo {
+  display: flex;
+  gap: 10px;
+}
+
+.counter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter-controls h2 {
+  margin: 0 20px;
+  min-width: 60px;
+  text-align: center;
+}
+
+button {
+  min-width: 70px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.history {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-item {
+  padding: 6px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+}
+
+button:disabled {
+  background-color: rgb(209, 207, 207);
+  cursor: not-allowed;
+}

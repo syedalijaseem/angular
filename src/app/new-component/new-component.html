@@ -1,0 +1,42 @@
+<p>More Directives</p>
+<ul>
+  <li>ngContainer: does not create an actual DOM element</li>
+  <li>ngTemplate: by default the content will not show unless it's being used elsewhere</li>
+  <li>ngContent: content Projection</li>
+</ul>
+
+<ng-template #myTemplate><p>This content is inside ng-template</p></ng-template>
+
+<div *ngTemplateOutlet="myTemplate"></div>
+
+<div>
+  <!-- the css on the ng-container will never apply as ng-container is never rendered to DOM -->
+  <ng-container class="btn-container">
+    <button>Button inside ng-container</button>
+  </ng-container>
+</div>
+
+<!-- Old syntax -->
+<!-- ng-container was often used to avoid adding unnecessary wrapper elements -->
+<!-- and to work with structural directives like *ngIf and *ngFor -->
+<!-- Without ng-container, developers often used an extra div wrapper for *ngIf -->
+<ng-container *ngIf="dataList.length; else myTemplate">
+  <div *ngFor="let d of dataList">
+    {{ d.item }}
+  </div>
+</ng-container>
+
+<!-- new syntax -->
+@if (dataList.length) {
+  @for (d of dataList; track d.id) {
+    <div>{{ d.item }}</div>
+  }
+} @else {
+  <div *ngTemplateOutlet="myTemplate"></div>
+}
+
+<h1>Change Detection</h1>
+<ol>
+  <li>Default (check always): observable, user event, etc.</li>
+  <li>onPush (check once): input changes, user event</li>
+</ol>

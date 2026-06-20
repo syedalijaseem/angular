@@ -1,4 +1,13 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  OnInit,
+  viewChild,
+  ViewChild,
+} from '@angular/core';
 import { FetchDataService } from '../day4-component/Services/fetch-data-service';
 import { BehaviorSubject, fromEvent, Observable, ReplaySubject, Subject, Subscription } from 'rxjs';
 import { ShareDataService } from './Service/share-data-service';
@@ -35,6 +44,18 @@ export class Day5Component implements OnInit, AfterViewInit {
   thirdSub = new ReplaySubject(3);
 
   sub: Subscription | null = null;
+
+  // select element from html
+  // old way
+  @ViewChild('myBtn') myBtn: ElementRef | undefined;
+
+  // newer way
+  // select element using viewchild
+  myInput = viewChild.required<ElementRef>('myInput');
+  createObs = computed(() => {
+    console.log(this.myInput());
+    fromEvent(this.myInput().nativeElement, 'input').subscribe((v) => console.log(v));
+  });
 
   ngOnInit(): void {
     this.sub = this.dataService.obs3.subscribe((res) => {
@@ -95,12 +116,17 @@ export class Day5Component implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const btn = document.querySelector('.btn');
-    if (btn) {
-      fromEvent(btn, 'click').subscribe((res) => {
-        console.log('From Event Observable', res);
-        this.sub?.unsubscribe();
-      });
+    console.log(this.myBtn);
+    if (this.myBtn) {
+      fromEvent(this.myBtn.nativeElement, 'click').subscribe((v) => console.log(v));
     }
+    // const btn = document.querySelector('.btn');
+    // if (btn) {
+    //   fromEvent(btn, 'click').subscribe((res) => {
+    //     console.log('From Event Observable', res);
+    //     this.sub?.unsubscribe();
+    //   });
+    // }
+    console.log(this.myInput());
   }
 }
