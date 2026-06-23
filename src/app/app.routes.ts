@@ -13,6 +13,7 @@ import { UserRegistration } from './user-registration/user-registration';
 import { NewComponent } from './new-component/new-component';
 import { Todos } from './todos/todos';
 import { UndoableCounter } from './undoable-counter/undoable-counter';
+import { GithubSearch } from './github-search/github-search';
 
 export const routes: Routes = [
   { path: '', component: Day3Component },
@@ -30,6 +31,7 @@ export const routes: Routes = [
   { path: 'newcomponent', component: NewComponent },
   { path: 'todo', component: Todos },
   { path: 'undoablecounter', component: UndoableCounter },
+  { path: 'githubsearch', component: GithubSearch },
 
   {
     path: 'lifecycle',
